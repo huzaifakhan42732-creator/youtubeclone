@@ -52,14 +52,14 @@ export default function Sidebar({ isOpen, onClose }) {
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed inset-0 bg-black/40 z-30 lg:hidden transition-opacity"
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
           aria-hidden="true"
         />
       )}
 
       {/* Main Sidebar */}
       <aside
-        className={`fixed top-14 bottom-0 left-0 bg-white z-40 overflow-y-auto custom-scrollbar border-r border-gray-200 transition-all duration-200 ease-in-out ${
+        className={`fixed top-14 bottom-0 left-0 bg-white z-50 lg:z-30 overflow-y-auto custom-scrollbar border-r border-gray-200 transition-all duration-200 ease-in-out shadow-lg lg:shadow-none ${
           isOpen
             ? 'w-60 translate-x-0'
             : '-translate-x-full lg:translate-x-0 lg:w-18'
@@ -188,8 +188,9 @@ export default function Sidebar({ isOpen, onClose }) {
               <p className="leading-relaxed">
                 About &bull; Press &bull; Copyright &bull; Contact us &bull; Creators &bull; Terms
               </p>
-              <p>&copy; 2026 YouTube Clone Student Project</p>
-              <p className="text-gray-400">Powered by Pexels Video API &amp; React.js</p>
+              <p>&copy; 2026 Adan Khan &bull; YouTube Clone Student Project</p>
+              <p className="text-gray-400">Built by Adan Khan</p>
+              <p className="text-gray-400">Powered by Pixabay Video API &amp; React.js</p>
             </div>
           </div>
         ) : (

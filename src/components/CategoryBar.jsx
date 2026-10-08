@@ -13,19 +13,18 @@ const CATEGORIES = [
   'Food'
 ];
 
-
 export default function CategoryBar({ activeCategory = 'All', onSelectCategory }) {
   const scrollContainerRef = useRef(null);
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -250 : 250;
+      const scrollAmount = direction === 'left' ? -200 : 200;
       scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="relative sticky top-14 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-100 py-3 px-4">
+    <div className="sticky top-14 z-20 bg-white/95 backdrop-blur-sm border-b border-gray-100 py-2 sm:py-3 px-2 sm:px-4 w-full">
       {/* Scroll Left Button */}
       <button
         onClick={() => handleScroll('left')}
@@ -38,7 +37,7 @@ export default function CategoryBar({ activeCategory = 'All', onSelectCategory }
       {/* Categories container */}
       <div
         ref={scrollContainerRef}
-        className="flex items-center gap-3 overflow-x-auto no-scrollbar scroll-smooth px-1 md:px-8"
+        className="flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar scroll-smooth px-1 md:px-8 touch-pan-x"
       >
         {CATEGORIES.map((category) => {
           const isActive = activeCategory.toLowerCase() === category.toLowerCase();
@@ -46,7 +45,7 @@ export default function CategoryBar({ activeCategory = 'All', onSelectCategory }
             <button
               key={category}
               onClick={() => onSelectCategory(category)}
-              className={`shrink-0 px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`shrink-0 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                 isActive
                   ? 'bg-black text-white hover:bg-neutral-800'
                   : 'bg-gray-100 text-gray-800 hover:bg-gray-200 active:bg-gray-300'

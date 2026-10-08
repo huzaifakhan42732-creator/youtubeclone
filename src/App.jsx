@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import BottomNav from './components/BottomNav';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import Watch from './pages/Watch';
@@ -36,7 +37,7 @@ export default function App() {
   }, [location.pathname, isWatchPage]);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(prev => !prev);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   const closeSidebar = () => {
@@ -58,16 +59,20 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col font-sans overflow-x-hidden w-full max-w-full">
       {/* Top Navbar */}
       <Navbar onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
 
-      <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative w-full">
         {/* Left Sidebar */}
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
         {/* Main Content Area */}
-        <main className={`flex-1 transition-all duration-200 ease-in-out ${getMainMargin()}`}>
+        <main
+          className={`flex-1 min-w-0 transition-all duration-200 ease-in-out ${getMainMargin()} ${
+            isWatchPage ? 'pb-4' : 'pb-16 sm:pb-4'
+          }`}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<SearchResults />} />
@@ -78,18 +83,21 @@ export default function App() {
             <Route path="/playlists" element={<PlaceholderPage title="Playlists" icon={ListVideo} />} />
             <Route path="/watch-later" element={<PlaceholderPage title="Watch Later" icon={Clock} />} />
             <Route path="/liked" element={<PlaceholderPage title="Liked Videos" icon={ThumbsUp} />} />
-            <Route 
-              path="*" 
+            <Route
+              path="*"
               element={
-                <PlaceholderPage 
-                  title="Page Not Found" 
-                  description="The page you were looking for doesn't exist. Click below to return to the video feed." 
+                <PlaceholderPage
+                  title="Page Not Found"
+                  description="The page you were looking for doesn't exist. Click below to return to the video feed."
                 />
-              } 
+              }
             />
           </Routes>
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation (Hidden on desktop & Watch page) */}
+      {!isWatchPage && <BottomNav />}
     </div>
   );
 }

@@ -3,15 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #0f0f0f;
     background-color: #ffffff;
     overflow-x: hidden;
+    width: 100%;
   }
 }
 
-/* Custom horizontal scrollbar hide/styling for category bar */
+/* Custom horizontal scrollbar hide/styling for category bar and mobile chips */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -20,9 +26,14 @@
   scrollbar-width: none;
 }
 
+/* Smooth touch scrolling */
+.touch-pan-x {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Subtle scrollbar for sidebar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;

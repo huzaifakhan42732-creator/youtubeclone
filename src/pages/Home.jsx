@@ -15,7 +15,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const result = await getVideosByCategory(category, { perPage: 24 });
+      const result = await getVideosByCategory(category, { perPage: 16 });
       setVideos(result.videos || []);
 
       if (result.error && !result.videos?.length) {
@@ -42,14 +42,14 @@ export default function Home() {
   };
 
   return (
-    <div className="flex-1 min-w-0 bg-white pb-12">
+    <div className="flex-1 min-w-0 bg-white">
       {/* Category Filter Bar */}
       <CategoryBar
         activeCategory={activeCategory}
         onSelectCategory={handleCategorySelect}
       />
 
-      <div className="p-4 sm:p-6 max-w-7xl mx-auto">
+      <div className="px-3 py-3 sm:px-6 sm:py-6 max-w-7xl mx-auto w-full">
         {/* Video Grid */}
         <VideoGrid
           videos={videos}

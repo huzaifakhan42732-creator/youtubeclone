@@ -41,21 +41,21 @@ export default function SearchResults() {
   }, [query]);
 
   return (
-    <div className="flex-1 min-w-0 bg-white p-4 sm:p-6 max-w-7xl mx-auto pb-16">
+    <div className="flex-1 min-w-0 bg-white px-3 py-3 sm:px-6 sm:py-6 max-w-7xl mx-auto pb-16 w-full">
       {/* Search Header */}
-      <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-200">
-        <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between pb-3 sm:pb-4 mb-4 sm:mb-6 border-b border-gray-200">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <Link
             to="/"
-            className="p-2 rounded-full hover:bg-gray-100 text-gray-700 transition-colors"
+            className="p-1.5 sm:p-2 rounded-full hover:bg-gray-100 text-gray-700 transition-colors shrink-0"
             title="Back to Home"
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
-          <div>
-            <h1 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
-              <Search className="w-5 h-5 text-gray-500" />
-              <span>Results for: &ldquo;{query}&rdquo;</span>
+          <div className="min-w-0">
+            <h1 className="text-base sm:text-xl font-bold text-gray-900 flex items-center gap-2 flex-wrap truncate">
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500 shrink-0" />
+              <span className="truncate">Results for: &ldquo;{query}&rdquo;</span>
             </h1>
             {!isLoading && (
               <p className="text-xs text-gray-500 mt-0.5">

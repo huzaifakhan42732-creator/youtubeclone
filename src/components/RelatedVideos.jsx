@@ -44,7 +44,7 @@ function RelatedVideoItem({ video }) {
       className="flex gap-3 group cursor-pointer hover:bg-gray-50 p-1.5 rounded-xl transition-colors"
     >
       {/* Thumbnail */}
-      <div className="relative w-40 aspect-video rounded-lg overflow-hidden bg-gray-100 shrink-0">
+      <div className="relative w-32 sm:w-40 aspect-video rounded-lg overflow-hidden bg-gray-100 shrink-0">
         {!imgError && video.thumbnail ? (
           <img
             src={video.thumbnail}

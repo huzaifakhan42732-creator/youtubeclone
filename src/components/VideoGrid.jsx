@@ -12,7 +12,7 @@ export default function VideoGrid({
   // Skeleton loading cards
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-7 animate-pulse">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-6 sm:gap-x-4 sm:gap-y-7 animate-pulse">
         {[...Array(8)].map((_, i) => (
           <div key={i} className="flex flex-col">
             {/* Thumbnail skeleton */}
@@ -63,11 +63,11 @@ export default function VideoGrid({
   // Empty state
   if (!videos || videos.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
-        <div className="w-16 h-16 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center mb-4">
-          <Film className="w-8 h-8" />
+      <div className="flex flex-col items-center justify-center py-16 sm:py-20 px-4 text-center">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center mb-4">
+          <Film className="w-7 h-7 sm:w-8 sm:h-8" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
           {emptyMessage}
         </h3>
         <p className="text-sm text-gray-600 max-w-sm">
@@ -79,7 +79,7 @@ export default function VideoGrid({
 
   // Main video grid
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-7">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-6 sm:gap-x-4 sm:gap-y-7">
       {videos.map((video) => (
         <VideoCard key={video.id} video={video} />
       ))}

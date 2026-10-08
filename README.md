@@ -1,6 +1,6 @@
-# YouTube Clone - Frontend Project
+# YouTube Clone - Built by Adan Khan
 
-A simple, clean, and functional YouTube Clone frontend built with **React.js**, **Tailwind CSS**, and **React Router**, powered by the **Pixabay Video API**.
+A simple, clean, and functional YouTube Clone frontend built by **Adan Khan** with **React.js**, **Tailwind CSS**, and **React Router**, powered by the **Pixabay Video API**.
 
 This project was built for a student frontend assignment, closely replicating the familiar layout, responsive navigation, and video streaming experience of YouTube without backend complexity.
 
